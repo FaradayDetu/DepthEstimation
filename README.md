@@ -8,12 +8,24 @@ With this implementation, we are able to estimate the distance from the ZED came
 
 This installation guide is a modification of https://github.com/theparselmouth/jetson-car/tree/master/ros_deep_learning#installation. Also, this repository uses ZED camera, make sure you install the ZED sdk before start this installation guide. https://www.stereolabs.com/developers/
 
-## jetson-inference
+## prerequisites
 
 First, install the latest [JetPack](https://developer.nvidia.com/embedded/jetpack) on your Jetson (JetPack 3.3 for TX1/TX2 and JetPack 4.1.1 for Xavier).
 
-Then, build and install [`jetson-inference`](https://github.com/dusty-nv/jetson-inference)
+Download gtest library.
 
+```bash
+$ sudo apt-get install libgtest-dev
+```
+If it is already installed, just type the following commands.
+
+```bash
+$ cd /usr/src/gtest
+$ cmake CMakeLists.txt
+$ make
+```
+
+Then, build and install [`jetson-inference`](https://github.com/dusty-nv/jetson-inference)
 ```bash
 $ cd ~
 $ sudo apt-get install git cmake
@@ -29,6 +41,7 @@ $ sudo make install
 Before proceeding, it's worthwhile to test that `jetson-inference` is working properly on your system by following this step of the Two Days to a Demo tutorial:
 * [Running the Image Recognition Program on Jetson](https://github.com/dusty-nv/jetson-inference#using-the-console-program-on-jetson)
 
+
 ## Redtail Project
 
 Now clone the Nvidia Redtail project repository and follow the steps bellow.
@@ -39,6 +52,7 @@ $ git clone https://github.com/NVIDIA-AI-IOT/redtail.git
 $ git clone https://github.com/FaradayDetu/DepthEstimation.git
 $ mv DepthEstimation/scripts/*.launch redtail/ros/packages/stereo_dnn_ros/launch
 ```
+ 
 
 ## ROS
 
@@ -76,9 +90,22 @@ $ source tensorflow/bin/activate
 $ pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp33 tensorflow-gpu #if using TX2
 $ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu #if   using Xavier
 ```
-## ros_deep_learning
+## ROS nodes
 
 Next, navigate into your Catkin workspace and clone and build `ros_deep_learning`, `stereoDNN`, `stereo_dnn_ros` and `zed_ros_wrapper`
+
+
+Note: If you are using Nvidia Jetson Xavier, before process the following commands, substitute the following line in the compilation scripts (compile_first_time.sh, compile_fp32.sh, compile_fp16.sh) 
+
+```bash
+cmake -DCMAKE_BUILD_TYPE=Debug/Release .. 
+```
+by:
+
+```bash
+cmake -DCMAKE_BUILD_TYPE=Debug/Release -DCUDA_NVCC_FLAGS='--gpu-architecture=compute_72' .. 
+```
+In this line, you are specifying the GPU architecture. By default is the architecture corresponding to Jetson TX2, but you can run the application in any CUDA capable device. 
 
 ```bash
 $ cd ~/catkin_ws/src
