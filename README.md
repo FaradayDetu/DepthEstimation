@@ -1,16 +1,19 @@
-# DepthEstimation
+# DepthEstimation project
+## Repository for Deep Learning models for depth estimation on autonomous vehicles.
 
-This repository uses CNN algorithms which comes from NVIDIA Redtail project (NVIDIA-AI-IOT/redtail) and a custom version of ros_deep_learning node (theparselmouth/jetson-car) .
-This repository contains the necessary files and instructions for using both algorithms together in an embedded computational platform such as Nvidia Jetson TX2 or Nvidia Jetson Xavier. 
-With this implementation, we are able to estimate the distance from the ZED camera to a bottle.
+In this project we use CNN algorithms which comes from NVIDIA Redtail project (NVIDIA-AI-IOT/redtail) and a custom version of ros_deep_learning node (theparselmouth/jetson-car). 
+In this repository you will find files and instructions for running both algorithms together in an embedded computational platform such as Nvidia Jetson TX2 or Nvidia Jetson Xavier using a ZED camera for stereo vision.
+
+For a detailed explanation on how both algorithms run together and what models had been used for depth estimation, read the MasterThesis.pdf
 
 # Installation
 
-This installation guide is a modification of https://github.com/theparselmouth/jetson-car/tree/master/ros_deep_learning#installation. Also, this repository uses ZED camera, make sure you install the ZED sdk before start this installation guide. https://www.stereolabs.com/developers/
+This installation guide is a modification of https://github.com/theparselmouth/jetson-car/tree/master/ros_deep_learning#installation. 
 
 ## prerequisites
 
 First, install the latest [JetPack](https://developer.nvidia.com/embedded/jetpack) on your Jetson (JetPack 3.3 for TX1/TX2 and JetPack 4.1.1 for Xavier).
+Since this repository uses ZED camera for stereo vision, make sure you install the ZED sdk before start this installation guide. https://www.stereolabs.com/developers/
 
 Download gtest library.
 
@@ -40,7 +43,6 @@ $ sudo make install
 ```
 Before proceeding, it's worthwhile to test that `jetson-inference` is working properly on your system by following this step of the Two Days to a Demo tutorial:
 * [Running the Image Recognition Program on Jetson](https://github.com/dusty-nv/jetson-inference#using-the-console-program-on-jetson)
-
 
 ## Redtail Project
 
