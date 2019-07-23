@@ -6,6 +6,15 @@ In this repository you will find files and instructions for running both algorit
 
 For a detailed explanation on how both algorithms run together and what models had been used for depth estimation, read the MasterThesis.pdf
 
+
+<p align="center">
+  <img src="cotxe_1.png" width="720" title="hover text">
+</p>
+
+<p align="center">
+  <img src="steering.gif" width="720" title="hover text">
+</p>
+
 # Installation
 
 This installation guide is a modification of https://github.com/theparselmouth/jetson-car/tree/master/ros_deep_learning#installation. 
