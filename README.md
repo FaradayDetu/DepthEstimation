@@ -98,6 +98,7 @@ $ pip install virtualenv
 $ cd ~
 $ virtualenv -p $(which python3) tensorflow
 $ source tensorflow/bin/activate
+$ pip install catkin_pkg
 $ pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp33 tensorflow-gpu #if using TX2
 $ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu #if   using Xavier
 ```
@@ -124,7 +125,7 @@ $ git clone https://github.com/dusty-nv/ros_deep_learning
 $ git clone https://github.com/stereolabs/zed-ros-wrapper.git
 $ ln -s ~/redtail/stereoDNN/
 $ mv ~/DepthEstimation/scripts/*.sh ~/catkin_ws
-$ mv ~/DepthEstimation/ros_deep_learning_src/*.py ~/catkin_ws/ros_deep_learning/src
+$ mv ~/DepthEstimation/ros_deep_learning_src/*.py ~/catkin_ws/src/ros_deep_learning/src
 $ cd ../
 $ bash compile_first_time.sh
 $ catkin_make
