@@ -124,6 +124,7 @@ $ git clone https://github.com/dusty-nv/ros_deep_learning
 $ git clone https://github.com/stereolabs/zed-ros-wrapper.git
 $ ln -s ~/redtail/stereoDNN/
 $ mv ~/DepthEstimation/scripts/*.sh ~/catkin_ws
+$ mv ~/DepthEstimation/ros_deep_learning_src/*.py ~/catkin_ws/ros_deep_learning/src
 $ cd ../
 $ bash compile_first_time.sh
 $ catkin_make
